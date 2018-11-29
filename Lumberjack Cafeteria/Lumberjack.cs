@@ -31,9 +31,10 @@ namespace Lumberjack_Cafeteria
         public void EatFlapjacks()
         {
             Console.WriteLine($@"{Name}'s eating flapjacks");
-            foreach (Flapjack flapjack in _meal)
+            while (FlapjackCount > 0)
             {
-                Console.WriteLine($@"{Name} ate a {_meal.Pop()} flapjack");
+                var flapjackToEat = _meal.Pop().ToString().ToLower();
+                Console.WriteLine($@"{Name} ate a {flapjackToEat} flapjack.");
             }
         }
     }

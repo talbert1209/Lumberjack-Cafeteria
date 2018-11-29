@@ -34,14 +34,14 @@
             this.breakfastLineListBox = new System.Windows.Forms.ListBox();
             this.breakfastLineLabel = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.numberOfFlapjacksNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.crispyRadioButton = new System.Windows.Forms.RadioButton();
-            this.soggyRadioButton = new System.Windows.Forms.RadioButton();
-            this.brownedRadioButton = new System.Windows.Forms.RadioButton();
-            this.bananaRadioButton = new System.Windows.Forms.RadioButton();
-            this.addFlapjacksButton = new System.Windows.Forms.Button();
-            this.flapjackCountListBox = new System.Windows.Forms.ListBox();
             this.nextLumberjackButton = new System.Windows.Forms.Button();
+            this.flapjackCountListBox = new System.Windows.Forms.ListBox();
+            this.addFlapjacksButton = new System.Windows.Forms.Button();
+            this.bananaRadioButton = new System.Windows.Forms.RadioButton();
+            this.brownedRadioButton = new System.Windows.Forms.RadioButton();
+            this.soggyRadioButton = new System.Windows.Forms.RadioButton();
+            this.crispyRadioButton = new System.Windows.Forms.RadioButton();
+            this.numberOfFlapjacksNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfFlapjacksNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,7 @@
             this.groupBox.Controls.Add(this.soggyRadioButton);
             this.groupBox.Controls.Add(this.crispyRadioButton);
             this.groupBox.Controls.Add(this.numberOfFlapjacksNumericUpDown);
+            this.groupBox.Enabled = false;
             this.groupBox.Location = new System.Drawing.Point(152, 97);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(171, 364);
@@ -107,45 +108,34 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Feed a Lumberjack";
             // 
-            // numberOfFlapjacksNumericUpDown
+            // nextLumberjackButton
             // 
-            this.numberOfFlapjacksNumericUpDown.Location = new System.Drawing.Point(6, 31);
-            this.numberOfFlapjacksNumericUpDown.Name = "numberOfFlapjacksNumericUpDown";
-            this.numberOfFlapjacksNumericUpDown.Size = new System.Drawing.Size(75, 22);
-            this.numberOfFlapjacksNumericUpDown.TabIndex = 0;
+            this.nextLumberjackButton.Location = new System.Drawing.Point(7, 322);
+            this.nextLumberjackButton.Name = "nextLumberjackButton";
+            this.nextLumberjackButton.Size = new System.Drawing.Size(158, 27);
+            this.nextLumberjackButton.TabIndex = 7;
+            this.nextLumberjackButton.Text = "Next Lumberjack";
+            this.nextLumberjackButton.UseVisualStyleBackColor = true;
+            this.nextLumberjackButton.Click += new System.EventHandler(this.nextLumberjackButton_Click);
             // 
-            // crispyRadioButton
+            // flapjackCountListBox
             // 
-            this.crispyRadioButton.AutoSize = true;
-            this.crispyRadioButton.Location = new System.Drawing.Point(6, 68);
-            this.crispyRadioButton.Name = "crispyRadioButton";
-            this.crispyRadioButton.Size = new System.Drawing.Size(68, 21);
-            this.crispyRadioButton.TabIndex = 1;
-            this.crispyRadioButton.TabStop = true;
-            this.crispyRadioButton.Text = "Crispy";
-            this.crispyRadioButton.UseVisualStyleBackColor = true;
+            this.flapjackCountListBox.FormattingEnabled = true;
+            this.flapjackCountListBox.ItemHeight = 16;
+            this.flapjackCountListBox.Location = new System.Drawing.Point(7, 221);
+            this.flapjackCountListBox.Name = "flapjackCountListBox";
+            this.flapjackCountListBox.Size = new System.Drawing.Size(158, 84);
+            this.flapjackCountListBox.TabIndex = 6;
             // 
-            // soggyRadioButton
+            // addFlapjacksButton
             // 
-            this.soggyRadioButton.AutoSize = true;
-            this.soggyRadioButton.Location = new System.Drawing.Point(6, 95);
-            this.soggyRadioButton.Name = "soggyRadioButton";
-            this.soggyRadioButton.Size = new System.Drawing.Size(69, 21);
-            this.soggyRadioButton.TabIndex = 2;
-            this.soggyRadioButton.TabStop = true;
-            this.soggyRadioButton.Text = "Soggy";
-            this.soggyRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // brownedRadioButton
-            // 
-            this.brownedRadioButton.AutoSize = true;
-            this.brownedRadioButton.Location = new System.Drawing.Point(6, 122);
-            this.brownedRadioButton.Name = "brownedRadioButton";
-            this.brownedRadioButton.Size = new System.Drawing.Size(84, 21);
-            this.brownedRadioButton.TabIndex = 3;
-            this.brownedRadioButton.TabStop = true;
-            this.brownedRadioButton.Text = "Browned";
-            this.brownedRadioButton.UseVisualStyleBackColor = true;
+            this.addFlapjacksButton.Location = new System.Drawing.Point(7, 187);
+            this.addFlapjacksButton.Name = "addFlapjacksButton";
+            this.addFlapjacksButton.Size = new System.Drawing.Size(158, 27);
+            this.addFlapjacksButton.TabIndex = 5;
+            this.addFlapjacksButton.Text = "Add Flapjacks";
+            this.addFlapjacksButton.UseVisualStyleBackColor = true;
+            this.addFlapjacksButton.Click += new System.EventHandler(this.addFlapjacksButton_Click);
             // 
             // bananaRadioButton
             // 
@@ -158,33 +148,45 @@
             this.bananaRadioButton.Text = "Banana";
             this.bananaRadioButton.UseVisualStyleBackColor = true;
             // 
-            // addFlapjacksButton
+            // brownedRadioButton
             // 
-            this.addFlapjacksButton.Location = new System.Drawing.Point(7, 187);
-            this.addFlapjacksButton.Name = "addFlapjacksButton";
-            this.addFlapjacksButton.Size = new System.Drawing.Size(158, 27);
-            this.addFlapjacksButton.TabIndex = 5;
-            this.addFlapjacksButton.Text = "Add Flapjacks";
-            this.addFlapjacksButton.UseVisualStyleBackColor = true;
-            this.addFlapjacksButton.Click += new System.EventHandler(this.addFlapjacksButton_Click);
+            this.brownedRadioButton.AutoSize = true;
+            this.brownedRadioButton.Location = new System.Drawing.Point(6, 122);
+            this.brownedRadioButton.Name = "brownedRadioButton";
+            this.brownedRadioButton.Size = new System.Drawing.Size(84, 21);
+            this.brownedRadioButton.TabIndex = 3;
+            this.brownedRadioButton.TabStop = true;
+            this.brownedRadioButton.Text = "Browned";
+            this.brownedRadioButton.UseVisualStyleBackColor = true;
             // 
-            // flapjackCountListBox
+            // soggyRadioButton
             // 
-            this.flapjackCountListBox.FormattingEnabled = true;
-            this.flapjackCountListBox.ItemHeight = 16;
-            this.flapjackCountListBox.Location = new System.Drawing.Point(7, 221);
-            this.flapjackCountListBox.Name = "flapjackCountListBox";
-            this.flapjackCountListBox.Size = new System.Drawing.Size(158, 84);
-            this.flapjackCountListBox.TabIndex = 6;
+            this.soggyRadioButton.AutoSize = true;
+            this.soggyRadioButton.Location = new System.Drawing.Point(6, 95);
+            this.soggyRadioButton.Name = "soggyRadioButton";
+            this.soggyRadioButton.Size = new System.Drawing.Size(69, 21);
+            this.soggyRadioButton.TabIndex = 2;
+            this.soggyRadioButton.TabStop = true;
+            this.soggyRadioButton.Text = "Soggy";
+            this.soggyRadioButton.UseVisualStyleBackColor = true;
             // 
-            // nextLumberjackButton
+            // crispyRadioButton
             // 
-            this.nextLumberjackButton.Location = new System.Drawing.Point(7, 322);
-            this.nextLumberjackButton.Name = "nextLumberjackButton";
-            this.nextLumberjackButton.Size = new System.Drawing.Size(158, 27);
-            this.nextLumberjackButton.TabIndex = 7;
-            this.nextLumberjackButton.Text = "Next Lumberjack";
-            this.nextLumberjackButton.UseVisualStyleBackColor = true;
+            this.crispyRadioButton.AutoSize = true;
+            this.crispyRadioButton.Location = new System.Drawing.Point(6, 68);
+            this.crispyRadioButton.Name = "crispyRadioButton";
+            this.crispyRadioButton.Size = new System.Drawing.Size(68, 21);
+            this.crispyRadioButton.TabIndex = 1;
+            this.crispyRadioButton.TabStop = true;
+            this.crispyRadioButton.Text = "Crispy";
+            this.crispyRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // numberOfFlapjacksNumericUpDown
+            // 
+            this.numberOfFlapjacksNumericUpDown.Location = new System.Drawing.Point(6, 31);
+            this.numberOfFlapjacksNumericUpDown.Name = "numberOfFlapjacksNumericUpDown";
+            this.numberOfFlapjacksNumericUpDown.Size = new System.Drawing.Size(75, 22);
+            this.numberOfFlapjacksNumericUpDown.TabIndex = 0;
             // 
             // Form1
             // 

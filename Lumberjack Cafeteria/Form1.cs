@@ -13,7 +13,7 @@ namespace Lumberjack_Cafeteria
 {
     public partial class Form1 : Form
     {
-        private Queue<Lumberjack> _lumberjacks;
+        private readonly Queue<Lumberjack> _lumberjacks;
         private int _flapjackCounter = 0;
 
         public Form1()
@@ -24,6 +24,17 @@ namespace Lumberjack_Cafeteria
 
         public void RedrawForm()
         {
+            // If there are no lumberjacks left
+            if (_lumberjacks.Count == 0)
+            {
+                flapjackCountListBox.Items.Clear();
+                breakfastLineListBox.Items.Clear();
+                groupBox.Enabled = false;
+                return;
+            }
+
+            groupBox.Enabled = true;
+
             // Redraws the breakfast line
             var lineOrder = 1;
             breakfastLineListBox.Items.Clear();
@@ -36,11 +47,19 @@ namespace Lumberjack_Cafeteria
             // Redraws the flapjack counter
             var currentLumberjack = _lumberjacks.Peek();
             flapjackCountListBox.Items.Clear();
-            flapjackCountListBox.Items.Add($"{currentLumberjack.Name} has {_flapjackCounter} flapjacks.");
+            if (_flapjackCounter > 0)
+            {
+                flapjackCountListBox.Items.Add($"{currentLumberjack.Name} has {_flapjackCounter} flapjacks.");
+            }
         }
 
         private void AddLumberjackButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(NameTextBox.Text))
+            {
+                MessageBox.Show(@"Please enter a name.", @"Cannot add lumberjack");
+                return;
+            }
             Lumberjack nextLumberjack = new Lumberjack(NameTextBox.Text);
             _lumberjacks.Enqueue(nextLumberjack);
             NameTextBox.Clear();
@@ -64,6 +83,15 @@ namespace Lumberjack_Cafeteria
             var nextLumberjack = _lumberjacks.Peek();
             nextLumberjack.TakeFlapjack(food, (int) numberOfFlapjacksNumericUpDown.Value);
             _flapjackCounter += (int) numberOfFlapjacksNumericUpDown.Value;
+            RedrawForm();
+        }
+
+        private void nextLumberjackButton_Click(object sender, EventArgs e)
+        {
+            var currentLumberjack = _lumberjacks.Peek();
+            currentLumberjack.EatFlapjacks();
+            _lumberjacks.Dequeue();
+            _flapjackCounter = 0;
             RedrawForm();
         }
     }
